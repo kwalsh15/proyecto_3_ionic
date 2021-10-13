@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Molotes de Oaxaca",
+    "author": "Juanito Martínez",
+    "imageUrl": "https://i.blogs.es/6d3c0a/1366_2000-4/840_560.jpg",
+    "steps": [
+      {
+        "ingredients": ["chili", "flour"],
+        "cookware": ["spoon", "knife"],
+        "videoUrl": "https://www.youtube.com/embed/KXw8CRapg7k"
+      }
+    ]
+  }
+]
+  

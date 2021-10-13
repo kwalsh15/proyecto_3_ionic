@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="new-background-color">{{recipe?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="recipe-image-container flex">
+    <img class="recipe-image" src="{{recipe?.imageUrl}}"/>
+  </div>
+  <div class="slide">
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <h1>Slide 1</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 2</h1>
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 3</h1>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
