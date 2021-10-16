@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from "../api/recipes.service";
+import { RecipesService } from "../services/recipes.service";
 import { Recipe } from 'src/models/recipe';
 import { DomSanitizer } from "@angular/platform-browser";
+import { ActivatedRoute } from '@angular/router';
+
+
 
 
 @Component({
@@ -12,10 +15,13 @@ import { DomSanitizer } from "@angular/platform-browser";
 export class RecipeStepsPage implements OnInit {
   recipe: Recipe;
 
-  constructor(private recipesService: RecipesService, private dom: DomSanitizer) { 
-    this.recipesService.getRecipes().subscribe(res => {
-      this.recipe = res[0];
-    });
+  constructor(private recipesService: RecipesService, private dom: DomSanitizer, private route: ActivatedRoute) { 
+    this.route.params.subscribe(async params => {
+      const recipeId = params['id'];
+      recipesService.get(recipeId).then(res => {
+        this.recipe = res;
+      });
+   });
   }
 
   ngOnInit() { }

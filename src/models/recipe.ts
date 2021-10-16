@@ -1,7 +1,7 @@
 import { Step } from "./steps";
 
 export class Recipe {
-  id: number;
+  id: Number;
   name: string;
   author: string;
   imageUrl: string;
