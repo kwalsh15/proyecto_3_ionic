@@ -1,0 +1,18 @@
+<div class="card" (click)="clicked.emit()">
+  <ion-card>
+    <ion-img [src]="item.imageUrl"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Creador: {{item.author}}</ion-card-subtitle>
+      <ion-card-title>{{item.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{item.description}}</ion-card-content>
+    <ion-card-content>
+      <ion-buttons>
+        <ion-button>
+          <ion-icon slot="icon-only" name="book-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+</div>

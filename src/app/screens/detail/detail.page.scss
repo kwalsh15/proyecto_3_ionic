@@ -1,0 +1,20 @@
+ion-content {
+  --background: #6b45bc;
+
+  .card {
+    height: 75%;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    border-radius: 3rem 3rem 0 0;
+    padding: 2rem;
+  }
+  .image {
+    position: absolute;
+    top: -6.5rem;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
