@@ -1,35 +1,32 @@
 <ion-content [fullscreen]="true" style="background: white;">
+  <ion-buttons>
+    <ion-button routerLink="/home/listing">
+      <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <div class="namePage borde">Crear receta</div>
-
   <ion-button (click)="saveRecipe()">Crear Receta</ion-button>
-
   <ion-item>
     <ion-label>Nombre Receta</ion-label>
     <ion-input [(ngModel)]="recipe.name"></ion-input>
   </ion-item>
-
   <ion-item>
     <ion-label>Imagen Receta</ion-label>
     <ion-input [(ngModel)]="recipe.imageUrl"></ion-input>
   </ion-item>
-
   <ion-item>
     <ion-label>Nombre Usuario</ion-label>
     <ion-input [(ngModel)]="recipe.author"></ion-input>
   </ion-item>
-
   <ion-item>
     <ion-textarea [(ngModel)]="recipe.description" placeholder="Descripción de la receta"></ion-textarea>
   </ion-item>
-  
-
   <div class="nombreReceta">Pasos</div>
   <div class="steps-container">
     <ion-reorder-group disabled="true" (ionItemReorder)="reorderItems($event)">
       <div #appenHere></div>
     </ion-reorder-group>
   </div>
-
   <div style="text-align: center;">
     <ion-button (click)="addNewComponent()">Nuevo Paso</ion-button>
   </div>

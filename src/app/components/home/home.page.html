@@ -1,11 +1,11 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="listing">
+    <ion-tab-button tab="listing" (click)="goToPage('home/listing')">
       <ion-icon name="restaurant-outline"></ion-icon>
       <ion-label>Ver Recetas</ion-label>
 
     </ion-tab-button>
-    <ion-tab-button tab="cart">
+    <ion-tab-button tab="cart" (click)="goToPage('create-recipe')">
       <ion-icon name="add-circle-outline"></ion-icon>
       <ion-label>Crear Receta</ion-label>
     </ion-tab-button>

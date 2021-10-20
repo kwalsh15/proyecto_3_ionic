@@ -8,6 +8,7 @@ import { CreateRecipePageRoutingModule } from './create-recipe-routing.module';
 
 import { CreateRecipePage } from './create-recipe.page';
 import { StepFormComponent } from '../step-form/step-form.component';
+import { HomePage } from '../components/home/home.page';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { StepFormComponent } from '../step-form/step-form.component';
     IonicModule,
     CreateRecipePageRoutingModule
   ],
-  declarations: [CreateRecipePage, StepFormComponent]
+  declarations: [CreateRecipePage, StepFormComponent, HomePage]
 })
 export class CreateRecipePageModule {}
