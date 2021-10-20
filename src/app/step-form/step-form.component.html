@@ -1,0 +1,25 @@
+<ion-card>
+  <div class="center-text">Paso {{stepNum}}</div>
+  <ion-item>
+    <ion-label>Ingrediente</ion-label>
+    <ion-input [(ngModel)]="newIngredient"></ion-input>
+    <ion-icon name="add-circle-outline" color="success" (click)="addIngredient()"></ion-icon>
+  </ion-item>
+  <ion-chip outline color="primary" *ngFor="let ingredient of newStep.ingredients">
+    <ion-label>{{ingredient}}</ion-label>
+    <ion-icon name="close-circle" (click)="removeIngredient(ingredient)"></ion-icon>
+  </ion-chip>
+  <ion-item>
+    <ion-label>Utensilio</ion-label>
+    <ion-input [(ngModel)]="newCookware"></ion-input>
+    <ion-icon name="add-circle-outline" color="success" (click)="addCookware()"></ion-icon>
+  </ion-item>
+  <ion-chip outline color="primary" *ngFor="let ware of newStep.cookware">
+    <ion-label>{{ware}}</ion-label>
+    <ion-icon name="close-circle" (click)="removeCookware(ware)"></ion-icon>
+  </ion-chip>
+  <ion-item>
+    <ion-label>Video</ion-label>
+    <ion-input [(ngModel)]="newStep.videoUrl"></ion-input>
+  </ion-item>
+</ion-card>

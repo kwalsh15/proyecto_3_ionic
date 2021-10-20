@@ -1,21 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="new-background-color">
-        <div class="title">{{recipe?.name}}</div>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <div class="recipe-image-container flex">
-    <img class="recipe-image" src="{{recipe?.imageUrl}}"/>
+<div class="page-content">
+<ion-buttons>
+  <ion-button routerLink="/home/listing">
+    <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+  </ion-button>
+</ion-buttons>  
+<ion-card class="main-card">
+  <div class="food-image-container center-flex">
+    <img class="food-image" src="{{recipe?.imageUrl}}"/>
   </div>
-  <div class="slide">
-    <ion-slides pager="true" [options]="slideOpts">
+  <ion-card-content>
+    <div class="center-flex recipe-name">
+      {{recipe?.name}}
+    </div>
+  </ion-card-content>
+  <ion-slides [options]="slideOptsOne" class="slides-container">
+    <ion-slide *ngFor="let step of recipe?.steps; index as i">
+      <ion-card class="slide-card">
+        <ion-card-content>
+          <div class="title margin-bottom margin-top">Paso: {{i + 1}}</div>
+          <div class="margin-bottom"> Ingredientes: <ion-badge color="primary" class="margin-left" *ngFor="let ingredient of step.ingredients">{{ingredient}}</ion-badge> </div>
+          <div style="margin-bottom: 15%"> Utensilios: <ion-badge color="primary" class="margin-left" *ngFor="let ware of step.cookware">{{ware}}</ion-badge> </div>
+          <div class="container">
+            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-card>
+</div>
+
+<!-- <ion-content class="flex">
+  <div style="height: 19.9%;">
+    <ion-buttons>
+      <ion-button routerLink="/home/listing">
+        <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <div class="recipe-image-container flex">
+      <img class="recipe-image" src="{{recipe?.imageUrl}}"/>
+    </div>
+  </div>
+  <div class="slide inner-remmaining">
+    <ion-slides [options]="slideOptsOne" class="slides">
       <ion-slide *ngFor="let step of recipe?.steps; index as i">
-          Step: {{i + 1}}
-          Ingredientes: <ion-badge color="primary" *ngFor="let ingredient of step.ingredients">{{ingredient}}</ion-badge>
-          Utensilios:<ion-badge color="primary" *ngFor="let ware of step.cookware">{{ware}}</ion-badge>
+        <ion-card class="slide-content card-center">
+          <ion-card-content>
+            <div class="title bottom-space">Paso: {{i + 1}}</div>
+            <div class="bottom-space"> Ingredientes: <ion-badge color="primary" class="margin-right" *ngFor="let ingredient of step.ingredients">{{ingredient}}</ion-badge> </div>
+            <div class="bottom-space"> Utensilios: <ion-badge color="primary" class="margin-right" *ngFor="let ware of step.cookware">{{ware}}</ion-badge> </div>
+            <iframe width="200" height="200" [src]="step.videoUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </ion-card-content>
+        </ion-card>
       </ion-slide>
     </ion-slides>
   </div>
-</ion-content>
+</ion-content> -->

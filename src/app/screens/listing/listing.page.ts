@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { Recipe } from 'src/models/recipe';
+import { Storage } from '@capacitor/storage';
 
 @Component({
   selector: 'app-listing',
@@ -14,10 +15,7 @@ export class ListingPage implements OnInit {
   constructor(private recipeService: RecipesService, private router: Router) {}
 
   async ngOnInit() {
-    //this.getCategories();
     this.foods = await this.recipeService.index();
-
-    console.log(this.foods);
   }
 
   /*getCategories() {

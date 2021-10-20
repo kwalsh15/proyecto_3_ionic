@@ -1,47 +1,65 @@
-.flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.page-content {
+  background: #644bb8;
 }
 
-ion-content{
-  --ion-background-color: #644bb8;
+.main-card {
   position: relative;
+  height: 91vh;
+  overflow: initial;
 }
 
-.title {
-  text-align: center;
-}
-
-.new-background-color {
-  background: #392f5a;
-}
-
-.recipe-image-container {
-  height: 20%;
-}
-
-.recipe-image {
-  border-radius: 50% !important;
-  width: 50%;
-  object-fit: contain;
+.food-image {
+  width: 160px;
+  border-radius: 50%;
   position: absolute;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.recipe-name {
   margin-top: 20%;
 }
 
-.slide {
-  background: white;
-  height: 80%;
-  width: 100%;
-  border-radius: 40px 40px 0 0 !important;
+.slides-container {
+  height: 75%;
 }
 
-ion-slides {
-  color: black;
+.slide-card {
+  width: 100%;
+  height: 99%;
+}
+
+.margin-bottom {
+  margin-bottom: 5%;
+}
+
+.margin-left {
+  margin-left: 5%;
+}
+
+.margin-top {
+  margin-top: 8%;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
   height: 100%;
-  width: 100%;
 }
 
-.title {
-  white-space: normal !important;
-}

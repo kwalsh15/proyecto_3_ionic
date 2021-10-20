@@ -18,7 +18,11 @@ const routes: Routes = [
       import('./recipe-steps/recipe-steps.module').then(
         (m) => m.RecipeStepsPageModule
       ),
+  },  {
+    path: 'create-recipe',
+    loadChildren: () => import('./create-recipe/create-recipe.module').then( m => m.CreateRecipePageModule)
   },
+
 
 ];
 

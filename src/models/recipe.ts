@@ -8,13 +8,13 @@ export class Recipe {
   description: string;
   steps: Step[];
 
-  constructor(recipe) {
+  constructor(name, author, imageUrl, steps,description) {
       {
-        this.name = recipe.name;
-        this.author = recipe.author;
-        this.imageUrl = recipe.imageUrl;
-        this.steps = recipe.steps;
-        this.description = recipe.description
+        this.name = name;
+        this.author = author;
+        this.imageUrl = imageUrl;
+        this.steps = steps;
+        this.description = description
 
       }
   }

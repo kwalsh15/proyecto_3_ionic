@@ -1,0 +1,59 @@
+ion-content{ 
+  --ion-background-color: white; 
+}
+
+ion-item{
+  --ion-background-color: white; 
+}
+
+
+
+ion-icon{
+  color: green;
+  font-size: 30px;
+
+}
+
+.borde{
+  border: 1px solid rgba(29, 28, 28, 0.13);
+}
+
+.namePage{
+  text-align: center;
+  color: black;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.nombreReceta{
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: black;
+  text-align: center;
+}
+
+.inputChanges{
+  text-align: center;
+  color: black;
+  width: 90%;
+}
+
+.inputIngredientes{
+  margin-left: 1%;
+  text-align: center;
+  color: black;
+  width: 88%;
+}
+
+.pricipalBox{
+  width: 98%;
+  margin-left: 1%;
+}
+
+.flex_block{
+  display: flex;
+}
+
+.steps-container {
+  margin: 10%;
+}
