@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ListingPageRoutingModule } from './listing-routing.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ListingPage } from './listing.page';
 import { SearchbarModule } from 'src/app/components/searchbar/searchbar.module';
@@ -20,6 +21,7 @@ import { FoodCardModule } from 'src/app/components/food-card/food-card.module';
     SearchbarModule,
     CategoryItemModule,
     FoodCardModule,
+    Ng2SearchPipeModule
   ],
   declarations: [ListingPage],
 })

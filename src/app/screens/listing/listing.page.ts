@@ -12,6 +12,7 @@ import { Storage } from '@capacitor/storage';
 export class ListingPage implements OnInit {
   //categories: Category[] = [];
   foods: Recipe[] = [];
+  nombrefiltrado = '';
   constructor(private recipeService: RecipesService, private router: Router) {}
 
   async ngOnInit() {

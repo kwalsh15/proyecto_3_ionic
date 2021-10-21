@@ -1,22 +1,13 @@
 <ion-content>
   <!-- Header -->
-  <div class="header">
-    <h1>Menú</h1>
-
-  </div>
+  <h1 style= "text-align: center;">Recetas creadas</h1>
+  
   <!-- SearchBar -->
-  <app-searchbar></app-searchbar>
-
-  <!-- Category -->
-  <!-- <div class="categories">
-    <app-category-item *ngFor="let item of categories" [item]="item"></app-category-item>
-  </div> -->
-
-  <!-- Recipes -->
-  <h1 class="list-header">Popular</h1>
-  <div class="food-list">
-    <app-food-card *ngFor="let food of foods" [item]="food" (clicked)="goToDetailPage(food.id)"></app-food-card>
+  <ion-searchbar placeholder="Filter Schedules" [(ngModel)]="nombrefiltrado" animated="true"></ion-searchbar>
+  <div class="header">    
+    <div class="food-list">
+      <app-food-card *ngFor="let food of foods | filter : nombrefiltrado" [item]="food" (clicked)="goToDetailPage(food.id)"></app-food-card>
+    </div>
   </div>
-
 
 </ion-content>
