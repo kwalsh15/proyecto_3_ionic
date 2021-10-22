@@ -15,6 +15,13 @@ export class CreateRecipePage implements OnInit {
 
   recipe: Recipe = new Recipe('', '', '', [], '');
 
+  invalidMessages = {
+    name: "El nombre de la receta no puede estar vacío",
+    author: "El creador de la receta no puede estar vacío",
+    imageUrl: "Debe insertar una imagen para la receta",
+    description: "La descripción de la receta no puede estar vacía",
+  }
+
   @ViewChild('appenHere', {static : false, read : ViewContainerRef}) target: ViewContainerRef;
 
   componentsReferences = Array<ComponentRef<StepFormComponent>>()
@@ -76,19 +83,56 @@ export class CreateRecipePage implements OnInit {
   }
 
   async saveRecipe() {
-    this.recipeService.stepComponents.forEach(component => {
-      if(component.stepNum >= 1) {
-      this.recipe.steps.push(component.newStep);
+    if(this.validateRecipe()) {
+      let validSteps = true;
+
+      if(this.recipeService.stepComponents.length == 0) {
+        const toast = await this.toastController.create({
+          message: "Debe ingresar al menos 1 paso",
+          duration: 2000,
+          color: 'danger'
+        });
+        await toast.present();
+        return false;
+      }
+
+      for (let index = 0; index < this.recipeService.stepComponents.length; index++) {
+        const component = this.recipeService.stepComponents[index];
+        if(component.stepNum >= 1 && component.validateStep()) {
+          this.recipe.steps.push(component.newStep);
+        } else {
+          validSteps = false;
+          return validSteps;
+        }
+      }
+
+      this.recipeService.save(this.recipe);
+      const toast = await this.toastController.create({
+        message: "Receta creada existosamente",
+        duration: 2000,
+        color: 'success'
+      });
+      await toast.present();
+      this.router.navigate(['/home/listing']);
+    }
+  }
+
+  validateRecipe() {
+    let isValidRecipe = true;
+    Object.keys(this.recipe).forEach(async key => {
+      const value = this.recipe[key];
+      if(!value) {
+        isValidRecipe = false;
+        const invalidMessage = this.invalidMessages[key];
+        const toast = await this.toastController.create({
+          message: invalidMessage,
+          duration: 2000,
+          color: 'danger'
+        });
+        await toast.present();
       }
     });
-    this.recipeService.save(this.recipe);
-    const toast = await this.toastController.create({
-      message: "Receta creada existosamente",
-      duration: 2000,
-      color: 'success'
-    });
-    await toast.present();
-    this.router.navigate(['/home/listing']);
+    return isValidRecipe;
   }
 
 }
