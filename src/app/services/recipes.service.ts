@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@capacitor/storage';
 import { Recipe } from 'src/models/recipe';
+import { StepFormComponent } from '../step-form/step-form.component';
 
 
 @Injectable({
@@ -8,6 +9,7 @@ import { Recipe } from 'src/models/recipe';
 })
 export class RecipesService {
   recipe: Recipe;
+  stepComponents: StepFormComponent[] = [];
 
   constructor() { }
 

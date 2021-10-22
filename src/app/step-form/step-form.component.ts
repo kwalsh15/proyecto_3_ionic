@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Step } from 'src/models/steps';
 
 @Component({
@@ -11,12 +11,16 @@ export class StepFormComponent implements OnInit {
   newStep: Step = {
     ingredients: [],
     cookware: [],
-    videoUrl: ''
+    videoUrl: '',
+    name: ''
   };
   
 
   newIngredient: string;
   newCookware: string;
+
+  @Output()
+  componentDeleted: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }
 
@@ -40,4 +44,10 @@ export class StepFormComponent implements OnInit {
     this.newStep.cookware.splice(index, 1);
   }
 
+  remove() {
+    window.dispatchEvent(new CustomEvent('componentDeleted',  {"detail": { "stepNum": this.stepNum - 1 }}))
+  }
+  updateStep(step: number) {
+    this.stepNum = step;
+  }
 }
