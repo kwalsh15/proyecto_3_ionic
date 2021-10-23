@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true" style="background: white;">
+<ion-content [fullscreen]="true" style="background: white;" #container>
   <ion-buttons>
     <ion-button routerLink="/home/listing">
       <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
@@ -23,7 +23,7 @@
   </ion-item>
   <div class="nombreReceta">Pasos</div>
   <div class="steps-container">
-    <ion-reorder-group disabled="true" (ionItemReorder)="reorderItems($event)">
+    <ion-reorder-group disabled="true" (ionItemReorder)="reorderItems($event)" id="container">
       <div #appenHere></div>
     </ion-reorder-group>
   </div>
