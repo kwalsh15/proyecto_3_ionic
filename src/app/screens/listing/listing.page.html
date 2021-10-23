@@ -6,7 +6,7 @@
   <ion-searchbar placeholder="Filter Schedules" [(ngModel)]="nombrefiltrado" animated="true"></ion-searchbar>
   <div class="header">    
     <div class="food-list">
-      <app-food-card *ngFor="let food of foods | filter : nombrefiltrado" [item]="food" (clicked)="goToDetailPage(food.id)"></app-food-card>
+      <app-food-card *ngFor="let food of foods | filter : nombrefiltrado" [item]="food" (clicked)="goToDetailPage(food.id)" (comments)="comments(food.id)"></app-food-card>
     </div>
   </div>
 

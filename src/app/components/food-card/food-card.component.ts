@@ -9,4 +9,5 @@ import { Recipe } from 'src/models/recipe';
 export class FoodCardComponent {
   @Input() item: Recipe;
   @Output() clicked = new EventEmitter();
+  @Output() comments = new EventEmitter();
 }

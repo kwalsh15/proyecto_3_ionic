@@ -1,0 +1,38 @@
+
+
+<ion-content [fullscreen]="true" style="background: white;">
+
+  <div ng-app="comments" ng-controller="commentsCtrl">
+    <form [formGroup]="form" (ngSubmit)="addNewComment()">
+      <div class="list list-inset">
+        <label class="item item-input" style="background-color:rgba(239, 239, 239, 0.5)">
+            <input type="text" placeholder="Name" ng-pattern="/[a-zA-Z.,-]+/" formControlName="name" required="required"/>
+        </label>
+        <br />
+        <label class="item item-input" style="background-color:rgba(239, 239, 239, 0.5)">
+            <textarea placeholder="Comment" formControlName="content" required="required" style="background-color:rgba(0,0,0,0)"></textarea>  
+         </label>
+        
+        <button type="submit" class="button button-block button-positive">Add comment</button>
+      </div>      
+    </form>
+
+    <ul *ngFor="let user of comments">
+      <li ng-repeat="comment in comments">
+        <div class="card">
+            <div class="item" >
+             Usuario: {{ user.name }}
+             <div >
+              Comentario:{{ user.content }}
+             </div>           
+            </div>
+            <div class="item item-text-wrap">
+                <article ng-bind-html="parseContent(user.content)"></article>
+            </div>
+          </div>
+      </li>
+    </ul>
+  </div>       
+ </ion-content>
+
+

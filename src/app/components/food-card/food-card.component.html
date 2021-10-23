@@ -1,4 +1,4 @@
-<div class="card" (click)="clicked.emit()">
+<div class="card" >
   <ion-card>
     <ion-img [src]="item.imageUrl"></ion-img>
     <ion-card-header>
@@ -8,8 +8,12 @@
     <ion-card-content>{{item.description}}</ion-card-content>
     <ion-card-content>
       <ion-buttons>
-        <ion-button>
+        
+        <ion-button (click)="clicked.emit()">
           <ion-icon slot="icon-only" name="book-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="comments.emit()">
+          <ion-icon slot="icon-only" name="chatbubbles"></ion-icon>
         </ion-button>
       </ion-buttons>
     </ion-card-content>

@@ -18,10 +18,16 @@ const routes: Routes = [
       import('./recipe-steps/recipe-steps.module').then(
         (m) => m.RecipeStepsPageModule
       ),
-  },  {
+  },
+  {
     path: 'create-recipe',
     loadChildren: () => import('./create-recipe/create-recipe.module').then( m => m.CreateRecipePageModule)
   },
+  {
+    path: 'comments/:id',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+
 
 
 ];
