@@ -13,12 +13,21 @@ import { Alert } from 'selenium-webdriver';
 export class ListingPage {
   foods: Recipe[] = [];
   nombrefiltrado = '';
-  constructor(private recipeService: RecipesService, private router: Router) {}
+  constructor(private recipeService: RecipesService, private router: Router) {
+    this.router.events.subscribe(async (e) => {
+      const currentRoute = e['url'];
+      if(currentRoute == '/home/listing') {
+        this.foods = [];
+        this.foods = await this.recipeService.index();
+      }
+    })
+  }
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
     this.foods = [];
     this.foods = await this.recipeService.index();
   }
+
   goToDetailPage(id: number) {
     this.router.navigate(['recipe-steps', id]);
   }

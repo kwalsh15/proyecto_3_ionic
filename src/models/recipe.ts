@@ -7,6 +7,7 @@ export class Recipe {
   imageUrl: string;
   description: string;
   steps: Step[];
+  comments: Comment[];
 
   constructor(name, author, imageUrl, steps,description) {
       {
@@ -15,7 +16,7 @@ export class Recipe {
         this.imageUrl = imageUrl;
         this.steps = steps;
         this.description = description
-
+        this.comments = [];
       }
   }
 }

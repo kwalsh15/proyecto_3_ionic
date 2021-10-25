@@ -57,7 +57,7 @@ export class StepFormComponent implements OnInit {
     const isValidCookware = this.newStep.cookware.length > 0;
     const isValidVideUrl = this.newStep.videoUrl != '';
     const isValidName = this.newStep.name != '';
-
+    console.log(this.newStep.name);
     if(!isValidIngredients) {
       this.showToast(`Debe ingresar al menos un ingrediente en el paso ${this.stepNum}`);
       return false;
@@ -65,10 +65,10 @@ export class StepFormComponent implements OnInit {
       this.showToast(`Debe ingresar al menos un utensilio en el paso ${this.stepNum}`);
       return false;
     } else if(!isValidVideUrl) {
-      this.showToast(`Debe ingresar el video del paso en el paso ${this.stepNum}`);
+      this.showToast(`Debe ingresar el video en el paso ${this.stepNum}`);
       return false;
     } else if(!isValidName) {
-      this.showToast(`Debe ingresar al nombre del paso en el paso ${this.stepNum}`);
+      this.showToast(`Debe ingresar al nombre en el paso ${this.stepNum}`);
       return false;
     }
 

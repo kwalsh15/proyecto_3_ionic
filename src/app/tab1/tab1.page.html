@@ -1,7 +1,17 @@
 
 
 <ion-content [fullscreen]="true" style="background: white;">
-
+  <ion-toolbar>
+    <ion-title color="primary" color="white">
+      {{recipe?.name}} <br>
+      <div style="font-size: 12px">Creador: {{recipe?.author}}</div>
+    </ion-title>
+  </ion-toolbar>
+  <ion-buttons>
+    <ion-button routerLink="/home/listing">
+      <ion-icon slot="icon-only" color='light' name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <div ng-app="comments" ng-controller="commentsCtrl">
     <form [formGroup]="form" (ngSubmit)="addNewComment()">
       <div class="list list-inset">

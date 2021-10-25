@@ -41,6 +41,13 @@ export class RecipesService {
     return recipes;
   };
 
+  async update(recipe: Recipe) {
+    await Storage.set({
+      key: String(recipe.id),
+      value: JSON.stringify(recipe),
+    });
+  }
+
   private getLastId = async (): Promise<number> => {
     const keysObj = await Storage.keys();
     return keysObj.keys.length;
